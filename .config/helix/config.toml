@@ -1,0 +1,22 @@
+# A purrfect theme.
+theme = "catppuccin_frappe"
+
+[editor]
+# I really don't know how can anyone live w/o relative line numbers.
+line-number = "relative"
+# Keeping up w/ good practices.
+mouse = false
+
+[editor.cursor-shape]
+# Different cursor shapes for different modes.
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+# Enable the file picker to detect hidden files.
+hidden = false
+
+[keys.normal]
+# Deselect on <ESC>.
+esc = ["collapse_selection", "keep_primary_selection"]
