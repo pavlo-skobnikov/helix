@@ -1,16 +1,16 @@
 [[language]]
 name = "toml"
+language-servers = ["taplo", "simple-completion"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 auto-format = true
-language-servers = ["taplo", "simple-completion"]
 
 [[language]]
 name = "markdown"
+language-servers = ["markdown", "simple-completion"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
+auto-format = true
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
-auto-format = true
-language-servers = ["markdown", "simple-completion"]
 
 [[language]]
 name = "yaml"
