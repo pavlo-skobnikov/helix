@@ -6,11 +6,17 @@ language-servers = ["taplo", "simple-completion"]
 
 [[language]]
 name = "markdown"
-formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
 auto-format = true
 language-servers = ["markdown", "simple-completion"]
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+auto-format = true
+language-servers = ["yaml-language-server", "simple-completion"]
 
 # Custom language servers.
 
