@@ -1,4 +1,15 @@
 [[language]]
+name = "java"
+formatter = { command = "google-java-format", args = ["-"] }
+auto-format = true
+
+[[language]]
+name = "scala"
+language-servers = ["metals", "simple-completion"]
+formatter = { command = "scalafmt", args = ["--stdin", "--stdout"] }
+auto-format = true
+
+[[language]]
 name = "toml"
 language-servers = ["taplo", "simple-completion"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
