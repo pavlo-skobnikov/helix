@@ -6,6 +6,8 @@ theme = "catppuccin_frappe"
 line-number = "relative"
 # Keeping up w/ good practices.
 mouse = false
+# Use my Zsh shell.
+shell = ["zsh", "-ic"]
 
 [editor.cursor-shape]
 # Different cursor shapes for different modes.
