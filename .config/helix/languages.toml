@@ -18,6 +18,11 @@ formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
 language-servers = ["yaml-language-server", "simple-completion"]
 
+[[language]]
+name = "bash"
+formatter = { command = "shfmt" }
+auto-format = true
+
 # Custom language servers.
 
 # Language server for buffer text completions and snippets.
