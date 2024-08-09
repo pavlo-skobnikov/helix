@@ -68,6 +68,10 @@ feature_snippets = true      # Enable snippets.
 feature_unicode_input = true # Enable "unicode input".
 feature_paths = true         # Enable path completion.
 
+[language-server.emmet-ls]
+command = "emmet-language-server"
+args = ["--stdio"]
+
 # Snippets configuration.
 
 [[sources]] # List of sources to load.
