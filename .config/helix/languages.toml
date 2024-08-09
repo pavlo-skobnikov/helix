@@ -48,6 +48,17 @@ formatter = { command = "gofumpt" }
 auto-format = true
 
 [[language]]
+name = "templ"
+language-servers = [
+  "templ",
+  "vscode-html-language-server",
+  "emmet-ls",
+  "tailwindcss-ls",
+]
+formatter = { command = "templ", args = ["fmt", "-stdout"] }
+auto-format = true
+
+[[language]]
 name = "java"
 formatter = { command = "google-java-format", args = ["-"] }
 auto-format = true
