@@ -1,4 +1,9 @@
 [[language]]
+name = "go"
+formatter = { command = "gofumpt" }
+auto-format = true
+
+[[language]]
 name = "java"
 formatter = { command = "google-java-format", args = ["-"] }
 auto-format = true
