@@ -1,4 +1,9 @@
 [[language]]
+name = "rust"
+formatter = { command = "rustfmt" }
+auto-format = true
+
+[[language]]
 name = "go"
 formatter = { command = "gofumpt" }
 auto-format = true
@@ -10,7 +15,6 @@ auto-format = true
 
 [[language]]
 name = "scala"
-language-servers = ["metals", "simple-completion"]
 formatter = { command = "scalafmt", args = ["--stdin", "--stdout"] }
 auto-format = true
 
@@ -32,7 +36,6 @@ soft-wrap.wrap-at-text-width = true
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
-language-servers = ["yaml-language-server", "simple-completion"]
 
 [[language]]
 name = "bash"
