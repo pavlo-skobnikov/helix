@@ -33,6 +33,11 @@ soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
 
 [[language]]
+name = "json"
+formatter = { command = "prettier", args = ["--parser", "json"] }
+auto-format = true
+
+[[language]]
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
