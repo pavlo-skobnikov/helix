@@ -42,6 +42,11 @@ name = "bash"
 formatter = { command = "shfmt" }
 auto-format = true
 
+# Existing language server extra configuration.
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
 # Custom language servers.
 
 # Language server for buffer text completions and snippets.
