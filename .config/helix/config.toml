@@ -8,6 +8,10 @@ line-number = "relative"
 mouse = false
 # Use my Zsh shell.
 shell = ["zsh", "-ic"]
+# Instant completions.
+completion-timeout = 5
+# Enable visual columns.
+rulers = [80, 100, 120]
 
 [editor.cursor-shape]
 # Different cursor shapes for different modes.
