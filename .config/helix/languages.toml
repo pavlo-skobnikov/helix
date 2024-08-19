@@ -74,6 +74,15 @@ formatter = { command = "shfmt" }
 auto-format = true
 
 [[language]]
+name = "vimscript"
+scope = "source.vim"
+file-types = ["vim", "ideavimrc"]
+roots = [".git"]
+indent = { tab-width = 4, unit = " " }
+auto-format = false
+language-servers = ["vim-language-server", "simple-completion"]
+
+[[language]]
 name = "toml"
 language-servers = ["taplo", "simple-completion"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
@@ -120,6 +129,10 @@ feature_paths = true         # Enable path completion.
 
 [language-server.emmet-ls]
 command = "emmet-language-server"
+args = ["--stdio"]
+
+[language-server.vim-language-server]
+command = "vim-language-server"
 args = ["--stdio"]
 
 # Snippets configuration.
