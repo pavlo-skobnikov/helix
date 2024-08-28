@@ -94,6 +94,10 @@ formatter = { command = "prettier", args = ["--parser", "json"] }
 auto-format = true
 
 [[language]]
+name = "protobuf"
+language-servers = ["protobuf-language-server"]
+
+[[language]]
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
@@ -134,6 +138,10 @@ args = ["--stdio"]
 [language-server.vim-language-server]
 command = "vim-language-server"
 args = ["--stdio"]
+
+[language-server.protobuf-language-server]
+command = "protobuf-language-server"
+args = ["-stdio"]
 
 # Snippets configuration.
 
