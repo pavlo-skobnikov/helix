@@ -5,7 +5,7 @@ theme = "catppuccin_frappe"
 # I really don't know how can anyone live w/o relative line numbers.
 line-number = "relative"
 # Different colors for different modes in the bottom info line.
-color-modes = "true"
+color-modes = true
 # Keeping up w/ good practices.
 mouse = false
 # Use my Zsh shell.
