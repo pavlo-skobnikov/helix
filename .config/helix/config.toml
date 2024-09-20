@@ -35,8 +35,8 @@ hidden = false
 # Deselect on <ESC>.
 esc = ["collapse_selection", "keep_primary_selection"]
 
-# Create an "Action" minor mode.
-[keys.normal."\\"]
+# Create an "Extra" minor mode.
+[keys.normal.space.x]
 d = [":new", ":insert-output lazydocker", ":redraw", "jump_backward"]
 e = [":new", ":insert-output lf", ":redraw", "jump_backward"]
 g = [
