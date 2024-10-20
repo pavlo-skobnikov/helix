@@ -37,9 +37,9 @@ hidden = false
 # Deselect on <ESC>.
 esc = ["collapse_selection", "keep_primary_selection"]
 
-# "Backslash" minor mode -> used as a Vim-inspired "leader" key i.e. for
+# "Comma" minor mode -> used as a Vim-inspired "leader" key i.e. for
 # user-defined custom mappings.
-[keys.normal."\\"]
+[keys.normal.","]
 # Open a new temporary buffer with `lazydocker` started.
 d = [":new", ":insert-output lazydocker", ":redraw", "jump_backward"]
 # Open a new temporary buffer with `lf` started.
