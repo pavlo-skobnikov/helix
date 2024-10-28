@@ -52,37 +52,9 @@ g = [
   "jump_backward",
   ":reload-all",
 ]
-
-# "Slime" minor mode -> Slime-like utility mappings to send text across tmux
-# panes.
-[keys.normal."\\".s]
-# Joins selected lines by replacing newlines with spaces and sends selection to 
-# the second tmux pane in the current window i.e. to the pane on the right.
-# NOTE: Works best with only 2 panes per window:
-#         - the left pane for helix;
-#         - the right pane for shell/REPL;
-s = [
-  ":pipe-to > /tmp/helix-slime-latest",
-  ":sh tr '\n' ' ' < /tmp/helix-slime-latest | tee /tmp/helix-slime-latest",
-  ":sh cat /tmp/helix-slime-latest | xargs -0 -I % tmux send-keys -t 2 %",
-]
-# Just like the mapping above except this one doesn't join the lines.
-S = [
-  ":pipe-to > /tmp/helix-slime-latest",
-  ":sh cat /tmp/helix-slime-latest | xargs -0 -I % tmux send-keys -t 2 %",
-]
-# r and R mappings are like s and S respectively. However, 'r' and 'R' also
-# send a Return/Enter key after the piped text. Useful for sending to shells. 
-r = [
-  ":pipe-to > /tmp/helix-slime-latest",
-  ":sh tr '\n' ' ' < /tmp/helix-slime-latest | tee /tmp/helix-slime-latest",
-  ":sh cat /tmp/helix-slime-latest | xargs -0 -I % tmux send-keys -t 2 % Enter",
-]
-R = [
-  ":pipe-to > /tmp/helix-slime-latest",
-  ":sh cat /tmp/helix-slime-latest | xargs -0 -I % tmux send-keys -t 2 % Enter",
-]
-# Re-send the latest text.
-l = [
-  ":sh cat /tmp/helix-slime-latest | xargs -0 -I % tmux send-keys -t 2 % Enter",
-]
+# Create a tmux pane to the right of the current one and start a 
+# project-specific REPL session.
+r = ":sh launch-project-repl.sh"
+# Send selected text to a tmux pane to the right of the current one.
+# Meant to be used in conjunction with the REPL session script.
+s = ":pipe-to tmux load-buffer - \\; paste-buffer -dpr -t '{right-of}' \\; send-keys -t '{right-of}' C-m"
