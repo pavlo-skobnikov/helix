@@ -115,6 +115,9 @@ soft-wrap.wrap-at-text-width = true
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
+[language-server.metals.config]
+autoImportBuild = "all"
+
 # Custom language servers.
 
 # Language server for buffer text completions and snippets.
