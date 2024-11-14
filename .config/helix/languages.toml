@@ -59,13 +59,12 @@ formatter = { command = "templ", args = ["fmt", "-stdout"] }
 auto-format = true
 
 [[language]]
-name = "java"
-formatter = { command = "google-java-format", args = ["-"] }
+name = "gleam"
 auto-format = true
 
 [[language]]
-name = "scala"
-formatter = { command = "scalafmt", args = ["--stdin", "--stdout"] }
+name = "java"
+formatter = { command = "google-java-format", args = ["-"] }
 auto-format = true
 
 [[language]]
@@ -96,6 +95,7 @@ auto-format = true
 [[language]]
 name = "protobuf"
 language-servers = ["protobuf-language-server"]
+auto-format = true
 
 [[language]]
 name = "yaml"
@@ -114,9 +114,6 @@ soft-wrap.wrap-at-text-width = true
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
-
-[language-server.metals.config]
-autoImportBuild = "all"
 
 # Custom language servers.
 
