@@ -1,3 +1,42 @@
+## Language servers configurations.
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+## Custom language servers.
+
+## Language server for buffer text completions and snippets.
+#   - Set max completion results len to 20.
+#   - Completions will return before snippets by default.
+[language-server.simple-completion-ls]
+command = "simple-completion-language-server"
+
+[language-server.simple-completion.config]
+max_completion_items = 20    # Set max completion results len for each group: words, snippets, unicode-input.
+snippets_first = true        # Completions will return before snippets by default.
+feature_words = true         # Enable completion by word.
+feature_snippets = true      # Enable snippets.
+feature_unicode_input = true # Enable "unicode input".
+feature_paths = true         # Enable path completion.
+
+# Emmet integration for helix.
+[language-server.emmet-ls]
+command = "emmet-language-server"
+args = ["--stdio"]
+
+# Vimscript support.
+[language-server.vim-ls]
+command = "vim-language-server"
+args = ["--stdio"]
+
+# Protobuf support.
+[language-server.protobuf-language-server]
+command = "protobuf-language-server"
+args = ["-stdio"]
+
+## Language-specific configurations.
+
+# Web-specific programming languages.
 [[language]]
 name = "html"
 language-servers = ["vscode-html-language-server", "emmet-ls", "tailwindcss-ls"]
@@ -37,6 +76,7 @@ language-servers = ["typescript-language-server", "emmet-ls", "tailwindcss-ls"]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
+# Programming languages.
 [[language]]
 name = "rust"
 formatter = { command = "rustfmt" }
@@ -67,6 +107,7 @@ name = "java"
 formatter = { command = "google-java-format", args = ["-"] }
 auto-format = true
 
+# Scripting languages.
 [[language]]
 name = "bash"
 formatter = { command = "shfmt" }
@@ -79,11 +120,12 @@ file-types = ["vim", "ideavimrc"]
 roots = [".git"]
 indent = { tab-width = 4, unit = " " }
 auto-format = false
-language-servers = ["vim-language-server", "simple-completion"]
+language-servers = ["simple-completion-ls", "vim-ls"]
 
+# Data-based formats.
 [[language]]
 name = "toml"
-language-servers = ["taplo", "simple-completion"]
+language-servers = ["simple-completion-ls", "taplo"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 auto-format = true
 
@@ -93,52 +135,20 @@ formatter = { command = "prettier", args = ["--parser", "json"] }
 auto-format = true
 
 [[language]]
-name = "protobuf"
-language-servers = ["protobuf-language-server"]
-auto-format = true
-
-[[language]]
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
 
 [[language]]
+name = "protobuf"
+language-servers = ["protobuf-ls"]
+auto-format = true
+
+# Markdown.
+[[language]]
 name = "markdown"
-language-servers = ["marksman", "simple-completion"]
+language-servers = ["simple-completion-ls", "marksman"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 auto-format = true
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
-
-# Existing language server extra configuration.
-
-[language-server.rust-analyzer.config.check]
-command = "clippy"
-
-# Custom language servers.
-
-# Language server for buffer text completions and snippets.
-# - Set max completion results len to 20.
-# - Completions will return before snippets by default.
-[language-server.simple-completion]
-command = "simple-completion-language-server"
-
-[language-server.simple-completion.config]
-max_completion_items = 20    # Set max completion results len for each group: words, snippets, unicode-input.
-snippets_first = true        # Completions will return before snippets by default.
-feature_words = true         # Enable completion by word.
-feature_snippets = true      # Enable snippets.
-feature_unicode_input = true # Enable "unicode input".
-feature_paths = true         # Enable path completion.
-
-[language-server.emmet-ls]
-command = "emmet-language-server"
-args = ["--stdio"]
-
-[language-server.vim-language-server]
-command = "vim-language-server"
-args = ["--stdio"]
-
-[language-server.protobuf-language-server]
-command = "protobuf-language-server"
-args = ["-stdio"]
