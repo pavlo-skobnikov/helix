@@ -142,9 +142,3 @@ args = ["--stdio"]
 [language-server.protobuf-language-server]
 command = "protobuf-language-server"
 args = ["-stdio"]
-
-# Snippets configuration.
-
-[[sources]] # List of sources to load.
-name = "friendly-snippets"                                  # Optional name shown on snippet description.
-git = "https://github.com/rafamadriz/friendly-snippets.git" # Git repo with snippets collections.
