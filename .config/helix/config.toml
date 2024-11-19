@@ -62,3 +62,7 @@ g = [
   "jump_backward",
   ":reload-all",
 ]
+# View the current line on Github.
+G = [":sh helix-get-file-data.sh | sed 's/ /:/g' | xargs gh browse"]
+# Git blame the current line.
+b = [":sh helix-get-file-data.sh | awk '{system(\"git blame \" $1 \" | sed -n \" $2 \"p\")}' | sed 's/^\\([a-f0-9]*\\).*/\\1/' | xargs git show"]
