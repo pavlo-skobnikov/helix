@@ -8,10 +8,10 @@ command = "clippy"
 ## Language server for buffer text completions and snippets.
 #   - Set max completion results len to 20.
 #   - Completions will return before snippets by default.
-[language-server.simple-completion-ls]
+[language-server.scls]
 command = "simple-completion-language-server"
 
-[language-server.simple-completion.config]
+[language-server.scls]
 max_completion_items = 20    # Set max completion results len for each group: words, snippets, unicode-input.
 snippets_first = true        # Completions will return before snippets by default.
 feature_words = true         # Enable completion by word.
@@ -120,12 +120,12 @@ file-types = ["vim", "ideavimrc"]
 roots = [".git"]
 indent = { tab-width = 4, unit = " " }
 auto-format = false
-language-servers = ["simple-completion-ls", "vim-ls"]
+language-servers = ["scls", "vim-ls"]
 
 # Data-based formats.
 [[language]]
 name = "toml"
-language-servers = ["simple-completion-ls", "taplo"]
+language-servers = ["scls", "taplo"]
 formatter = { command = "taplo", args = ["fmt", "-"] }
 auto-format = true
 
@@ -147,7 +147,7 @@ auto-format = true
 # Markdown.
 [[language]]
 name = "markdown"
-language-servers = ["simple-completion-ls", "marksman"]
+language-servers = ["scls", "marksman"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 auto-format = true
 soft-wrap.enable = true
