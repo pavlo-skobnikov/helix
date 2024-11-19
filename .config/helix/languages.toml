@@ -11,7 +11,7 @@ command = "clippy"
 [language-server.scls]
 command = "simple-completion-language-server"
 
-[language-server.scls]
+[language-server.scls.config]
 max_completion_items = 20    # Set max completion results len for each group: words, snippets, unicode-input.
 snippets_first = true        # Completions will return before snippets by default.
 feature_words = true         # Enable completion by word.
@@ -30,7 +30,7 @@ command = "vim-language-server"
 args = ["--stdio"]
 
 # Protobuf support.
-[language-server.protobuf-language-server]
+[language-server.protobuf-ls]
 command = "protobuf-language-server"
 args = ["-stdio"]
 
@@ -39,77 +39,98 @@ args = ["-stdio"]
 # Web-specific programming languages.
 [[language]]
 name = "html"
-language-servers = ["vscode-html-language-server", "emmet-ls", "tailwindcss-ls"]
+language-servers = [
+  "scls",
+  "tailwindcss-ls",
+  "emmet-ls",
+  "vscode-html-language-server",
+]
 formatter = { command = "prettier", args = ["--parser", "html"] }
-auto-format = true
 
 [[language]]
 name = "css"
-language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+language-servers = ["scls", "tailwindcss-ls", "vscode-css-language-server"]
 formatter = { command = "prettier", args = ["--parser", "css"] }
-auto-format = true
 
 [[language]]
 name = "scss"
+language-servers = ["scls", "tailwindcss-ls", "vscode-css-language-server"]
 formatter = { command = "prettier", args = ["--parser", "scss"] }
-auto-format = true
 
 [[language]]
 name = "javascript"
+language-servers = ["scls", "typescript-language-server"]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server", "emmet-ls", "tailwindcss-ls"]
+language-servers = [
+  "scls",
+  "tailwindcss-ls",
+  "emmet-ls",
+  "vscode-html-language-server",
+  "typescript-language-server",
+]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
+language-servers = ["scls", "typescript-language-server"]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server", "emmet-ls", "tailwindcss-ls"]
+language-servers = [
+  "scls",
+  "tailwindcss-ls",
+  "emmet-ls",
+  "vscode-html-language-server",
+  "typescript-language-server",
+]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 # Programming languages.
 [[language]]
 name = "rust"
+language-servers = ["scls", "rust-analyzer"]
 formatter = { command = "rustfmt" }
 auto-format = true
 
 [[language]]
 name = "go"
+language-servers = ["scls", "gopls", "golangci-lint-lsp"]
 formatter = { command = "gofumpt" }
-auto-format = true
 
 [[language]]
 name = "templ"
 language-servers = [
-  "templ",
-  "vscode-html-language-server",
-  "emmet-ls",
+  "scls",
   "tailwindcss-ls",
+  "emmet-ls",
+  "vscode-html-language-server",
+  "templ",
 ]
 formatter = { command = "templ", args = ["fmt", "-stdout"] }
 auto-format = true
 
 [[language]]
 name = "gleam"
-auto-format = true
+language-servers = ["scls", "gleam"]
 
 [[language]]
 name = "java"
 formatter = { command = "google-java-format", args = ["-"] }
+language-servers = ["scls", "jdtls"]
 auto-format = true
 
 # Scripting languages.
 [[language]]
 name = "bash"
+language-servers = ["scls", "bash-language-server"]
 formatter = { command = "shfmt" }
 auto-format = true
 
@@ -131,23 +152,24 @@ auto-format = true
 
 [[language]]
 name = "json"
+language-servers = ["scls", "vscode-json-language-server"]
 formatter = { command = "prettier", args = ["--parser", "json"] }
-auto-format = true
 
 [[language]]
 name = "yaml"
+language-servers = ["scls", "yaml-language-server", "ansible-language-server"]
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
 
 [[language]]
 name = "protobuf"
-language-servers = ["protobuf-ls"]
+language-servers = ["scls", "protobuf-ls", "pbkit"]
 auto-format = true
 
 # Markdown.
 [[language]]
 name = "markdown"
-language-servers = ["scls", "marksman"]
+language-servers = ["scls", "marksman", "markdown-oxide"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 auto-format = true
 soft-wrap.enable = true
