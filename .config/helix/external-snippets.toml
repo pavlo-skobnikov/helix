@@ -1,0 +1,51 @@
+[[sources]]
+name = "friendly-snippets"
+git = "https://github.com/rafamadriz/friendly-snippets.git"
+
+[[sources.paths]]
+scope = ["html"]
+path = "snippets/html.json"
+
+[[sources.paths]]
+scope = ["css", "scss"]
+path = "snippets/css.json"
+
+[[sources.paths]]
+scope = ["javascript"]
+path = "snippets/javascript/javascript.json"
+
+[[sources.paths]]
+scope = ["javascript"]
+path = "snippets/javascript/jsdoc.json"
+
+[[sources.paths]]
+scope = ["typescript"]
+path = "snippets/javascript/typescript.json"
+
+[[sources.paths]]
+scope = ["typescript"]
+path = "snippets/javascript/tsdoc.json"
+
+[[sources.paths]]
+scope = ["rust"]
+path = "snippets/rust"
+
+[[sources.paths]]
+scope = ["go"]
+path = "snippets/go.json"
+
+[[sources.paths]]
+scope = ["gleam"]
+path = "snippets/gleam.json"
+
+[[sources.paths]]
+scope = ["java"]
+path = "snippets/java"
+
+[[sources.paths]]
+scope = ["bash"]
+path = "snippets/shell"
+
+[[sources.paths]]
+scope = ["markdown"]
+path = "snippets/markdown.json"
