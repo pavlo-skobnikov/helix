@@ -40,7 +40,6 @@ esc = ["collapse_selection", "keep_primary_selection"]
 # Meant to be used in conjunction with the REPL session script.
 "A-ret" = ":pipe-to tmux load-buffer - \\; paste-buffer -dpr -t '{right-of}' \\; send-keys -t '{right-of}' C-m"
 
-# ls
 # "Comma" minor mode -> used as a Vim-inspired "leader" key i.e. for
 # user-defined custom mappings.
 [keys.normal.","]
