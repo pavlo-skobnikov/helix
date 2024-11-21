@@ -54,7 +54,7 @@ f = [
   ":new",
   ":insert-output helix-get-file-data.sh | awk '{print $1}' | xargs dirname | xargs lf",
   ":redraw",
-  "jump_backward"
+  "jump_backward",
 ]
 # Open a new temporary buffer with `lf` started at the project root.
 p = [":new", ":insert-output lf", ":redraw", "jump_backward"]
@@ -69,6 +69,8 @@ g = [
   ":reload-all",
 ]
 # Git blame the current line.
-b = [":sh helix-get-file-data.sh | awk '{system(\"git blame \" $1 \" | sed -n \" $2 \"p\")}' | sed 's/^\\([a-f0-9]*\\).*/\\1/' | xargs git show"]
+b = [
+  ":sh helix-get-file-data.sh | awk '{system(\"git blame \" $1 \" | sed -n \" $2 \"p\")}' | sed 's/^\\([a-f0-9]*\\).*/\\1/' | xargs git show",
+]
 # Open the current file and line on Github.
 o = [":sh helix-get-file-data.sh | sed 's/ /:/g' | xargs gh browse"]
