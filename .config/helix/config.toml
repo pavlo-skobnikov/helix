@@ -61,13 +61,7 @@ p = [":new", ":insert-output lf", ":redraw", "jump_backward"]
 
 [keys.normal.",".g]
 # Open a new temporary buffer with `lazygit` started.
-g = [
-  ":new",
-  ":insert-output lazygit",
-  ":redraw",
-  "jump_backward",
-  ":reload-all",
-]
+g = [":sh zellij run --in-place --name=lazygit -- lazygit", ":redraw"]
 # Git blame the current line.
 b = [
   ":sh helix-get-file-data.sh | awk '{system(\"git blame \" $1 \" | sed -n \" $2 \"p\")}' | sed 's/^\\([a-f0-9]*\\).*/\\1/' | xargs git show",
