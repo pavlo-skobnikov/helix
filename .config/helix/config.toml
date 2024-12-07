@@ -8,8 +8,8 @@ line-number = "relative"
 color-modes = true
 # Keeping up w/ good practices.
 mouse = false
-# Use my Zsh shell.
-shell = ["zsh", "-ic"]
+# Use Nushell for shell commands.
+shell = ["nu", "-i", "-c"]
 # Instant completions.
 completion-timeout = 5
 # Enable visual columns.
