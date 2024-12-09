@@ -47,6 +47,8 @@ esc = ["collapse_selection", "keep_primary_selection"]
 [keys.normal.","]
 # Open a new temporary buffer with `lazydocker` started.
 d = [":sh zellij run --in-place --name=lazydocker -- lazydocker"]
+# Reload/refresh all buffers.
+r = ":reload-all"
 
 [keys.normal.",".e]
 # Open a new temporary buffer with `lf` started for the current file's directory.
