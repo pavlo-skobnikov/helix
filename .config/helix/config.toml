@@ -59,7 +59,7 @@ f = [
   "jump_backward",
 ]
 # Open a new temporary buffer with `lf` started at the project root.
-p = [":new", ":insert-output lf", ":redraw", "jump_backward"]
+p = [":sh zellij run --in-place --name=lf -- lf"]
 
 [keys.normal.",".g]
 # Open a new temporary buffer with `lazygit` started.
