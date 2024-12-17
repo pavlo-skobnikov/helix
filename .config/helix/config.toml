@@ -46,27 +46,58 @@ esc = ["collapse_selection", "keep_primary_selection"]
 # user-defined custom mappings.
 [keys.normal.","]
 # Open a new temporary buffer with `lazydocker` started.
-d = [":sh zellij run --in-place --name=lazydocker -- lazydocker"]
+d = [
+  ":new",
+  ":insert-output lazydocker",
+  ":redraw",
+  "jump_backward",
+  ":reload-all",
+]
 # Reload/refresh all buffers.
 r = ":reload-all"
+# Quick configuration reload.
+R = ":config-reload"
 
 [keys.normal.",".e]
 # Open a new temporary buffer with `lf` started for the current file's directory.
-f = [
-  ":new",
-  ":insert-output helix-get-file-data.sh | awk '{print $1}' | xargs dirname | xargs lf",
-  ":redraw",
-  "jump_backward",
-]
+f = [":new", """:insert-output helix-get-file-data.nu 
+                  | from nuon 
+                  | get 0.fPath
+                  | dirname $in 
+                  | lf $in""", ":redraw", "jump_backward", ":reload-all"]
 # Open a new temporary buffer with `lf` started at the project root.
-p = [":sh zellij run --in-place --name=lf -- lf"]
+p = [":new", ":insert-output lf", ":redraw", "jump_backward", ":reload-all"]
 
 [keys.normal.",".g]
 # Open a new temporary buffer with `lazygit` started.
-g = [":sh zellij run --in-place --name=lazygit -- lazygit"]
-# Git blame the current line.
+g = [
+  ":new",
+  ":insert-output lazygit",
+  ":redraw",
+  "jump_backward",
+  ":reload-all",
+]
+# Get git commit information for the current line.
 b = [
-  ":sh helix-get-file-data.sh | awk '{system(\"git blame \" $1 \" | sed -n \" $2 \"p\")}' | sed 's/^\\([a-f0-9]*\\).*/\\1/' | xargs git show",
+  """:sh helix-get-file-data.nu 
+      | from nuon
+      | rename file lineRange
+      | update lineRange { str substring 0..($in | str index-of ":" | $in - 1) } 
+      | update lineRange { $in | $"($in),($in)"} 
+      | git blame $in.0.file -L $in.0.lineRange
+      | split column -r " +"
+      | get 0.column1
+      | if $in =~ "0+" { echo "Not commited yet!" } else { git show $in }""",
 ]
 # Open the current file and line on Github.
-o = [":sh helix-get-file-data.sh | sed 's/ /:/g' | xargs gh browse"]
+o = [
+  """:sh helix-get-file-data.nu 
+      | from nuon 
+      | update lineAndCol { str substring 0..($in | str index-of ":" | $in - 1) } 
+      | rename fPath lineNumber
+      | [$in.0.fPath $in.0.lineNumber]
+      | str join ":"
+      | gh browse $in""",
+]
+# Reset changed lines.
+r = [":reset-diff-change"]
